@@ -1,0 +1,176 @@
+# Sent to the console trying Darkour commands
+command.error.notplayer=§cThis command is reserved to players
+
+# Sent to players who doesn't know how the command work
+! {USAGE} The correct usage
+command.error.badusage=§cBad usage ! Use this command like: {USAGE}
+
+# Error when a parkour with the same tag already exists
+! {PARKOUR_TAG} The parkour tag
+command.error.parkour.alreadyexists=§cThe parkour tag "{PARKOUR_TAG}" is already registered
+
+# Error when no parkour match the given tag
+! {PARKOUR_TAG} The parkour tag
+command.error.parkour.notexists=§c"{PARKOUR_TAG}" does not exists
+
+# Error when a player is not in parkour
+command.error.traceur.notinparkour=§cYou are not in parkour mode
+
+# The Traceur action bar format
+! {PLAYER} The player name
+! {PLAYER_DISPLAY} The player display name (usually with colors)
+! {PARKOUR} The parkour name
+! {CHECKPOINT} The number of valid checkpoint
+! {CHRONO} The competitive chrono
+parkour.actionbar=§c§l{PARKOUR}§r§7 - Checkpoint: §c§l{CHECKPOINT}§r§7 - §c§l{CHRONO}
+
+# Sent when a player join a parkour
+! {PLAYER} The player name
+! {PLAYER_DISPLAY} The player display name (usually with colors)
+! {PARKOUR} The parkour name
+parkour.chat.start=§7[§c§lDarkour§r§7] You have joined §c{PARKOUR}
+
+# Sent when a player leave a parkour
+! {PLAYER} The player name
+! {PLAYER_DISPLAY} The player display name (usually with colors)
+! {PARKOUR} The parkour name
+parkour.chat.stop=§7[§c§lDarkour§r§7] You have leaved §c{PARKOUR}
+
+# Sent when a player reach the end of a parkour
+! {PLAYER} The player name
+! {PLAYER_DISPLAY} The player display name (usually with colors)
+! {PARKOUR} The parkour name
+! {CHRONO} The competitive chrono
+! {NEW_LINE} Go to next line
+parkour.chat.success=§7[§c§lDarkour§r§7] Congratulations !{NEW_LINE}\
+  §7You have reach the end of §c§l{PARKOUR}§r§7 in §c{CHRONO}
+
+# Sent when a player has not the permission to join the parkour
+! {PARKOUR} The parkour name
+parkour.chat.noperm=§cYou have not the permission to join {PARKOUR}
+
+# Sent when a player has not the permission to leave the parkour
+# (Only caused by a plugin cancelling the "stop event" by the API)
+! {PARKOUR} The parkour name
+parkour.chat.cantleave=§cYou have not the permission to leave {PARKOUR}
+
+# Name of the "Retry" item
+parkour.item.retry=§6Retry
+
+# Name of the "Leave" item
+parkour.item.leave=§cLeave
+
+# The Editor action bar format
+! {PARKOUR} The parkour name
+! {CHECKPOINTS} The current number of checkpoints
+! {MINY} The current minimum Y-coordonate
+editor.actionbar=§c§l{PARKOUR}§r§7 - Checkpoints: §c§l{CHECKPOINTS}§r§7 - Minimum Y: §c§l{MINY}
+
+# Sent when a player entered the editor mode
+! {NEW_LINE} Go to next line
+editor.chat.welcome=§7[§c§lDarkour§r§7] You are now in Parkour Editor mode !{NEW_LINE}\
+  §7Let's take a look at items's lore in your inventory to have more informations about them.
+
+# Sent when a player quit the editor mode
+editor.chat.done=§7[§c§lDarkour§r§7] You have just exited Parkour Editor mode.
+
+# Sent when a player is about to set the parkour name
+editor.chat.newname=§7[§c§lDarkour§r§7] Type the parkour name directly in the chat:
+
+# Sent when parkour has no name
+editor.chat.missing.name=§cYour parkour has no name !
+
+# Sent when parkour has no start
+editor.chat.missing.start=§cYour parkour has no start !
+
+# Sent when parkour has no end
+editor.chat.missing.end=§cYour parkour has no end !
+
+# Sent when parkour name has been set
+editor.chat.set.name=§7[§c§lDarkour§r§7] Parkour name set.
+
+# Sent when parkour start has been set
+editor.chat.set.start=§7[§c§lDarkour§r§7] Parkour start set.
+
+# Sent when parkour start has been removed
+editor.chat.remove.start=§7[§c§lDarkour§r§7] Parkour start removed.
+
+# Sent when parkour end has been set
+editor.chat.set.end=§7[§c§lDarkour§r§7] Parkour end set.
+
+# Sent when parkour end has been removed
+editor.chat.remove.end=§7[§c§lDarkour§r§7] Parkour end removed.
+
+# Sent when checkpoint has been added
+editor.chat.set.checkpoint=§7[§c§lDarkour§r§7] Checkpoint added.
+
+# Sent when checkpoint has been removed
+editor.chat.remove.checkpoint=§7[§c§lDarkour§r§7] Checkpoint removed.
+
+# Sent when minimum Y has been set
+editor.chat.set.miny=§7[§c§lDarkour§r§7] Minimum Y set.
+
+# Name of "Rename" item
+editor.item.rename.name=Rename
+# Lore of "Rename" item
+! {NEW_LINE} Go to next line
+editor.item.rename.lore=Just right-click this item.{NEW_LINE}\
+  Once upon you've done that, you will asked to type the new{NEW_LINE}\
+  directly in the chat (without any command)
+
+# Name of "Prevent All" item
+editor.item.damages.all.name=Prevented damages: All
+# Lore of "Prevent All" item
+! {NEW_LINE} Go to next line
+editor.item.damages.all.lore=All damages will be disabled{NEW_LINE}\
+  §lRight-click to switch between options
+
+# Name of "Prevent Fall" item
+editor.item.damages.fall.name=Prevented damages: Fall
+# Lore of "Prevent Fall" item
+! {NEW_LINE} Go to next line
+editor.item.damages.fall.lore=Only fall damages will be disabled{NEW_LINE}\
+  §lRight-click to switch between options
+
+# Name of "Prevent None" item
+editor.item.damages.none.name=Prevented damages: None
+# Lore of "Prevent None" item
+! {NEW_LINE} Go to next line
+editor.item.damages.none.lore=All damages are enabled{NEW_LINE}\
+  (but always can be disabled by others plugins){NEW_LINE}\
+  §lRight-click to switch between options
+
+# Name of "Start" item
+editor.item.start.name=Start position
+# Lore of "Start" item
+! {NEW_LINE} Go to next line
+editor.item.start.lore=Place this pressure plate at the beginning of your parkour
+
+# Name of "End" item
+editor.item.end.name=End position
+# Lore of "End" item
+! {NEW_LINE} Go to next line
+editor.item.end.lore=Place this pressure plate at the end of your parkour
+
+# Name of "Checkpoint" item
+editor.item.checkpoint.name=Checkpoint
+# Lore of "Checkpoint" item
+! {NEW_LINE} Go to next line
+editor.item.checkpoint.lore=Place this pressure plate to add checkpoints{NEW_LINE}\
+  Pay attention to the order of placing !
+
+# Name of "MinY" item
+editor.item.miny.name=Set minimun Y-coordonate
+# Lore of "MinY" item
+! {NEW_LINE} Go to next line
+editor.item.miny.lore=By default set to 0{NEW_LINE}\
+  If a traceur fall below this Y-coordonate, he will be teleported{NEW_LINE}\
+  to the last valid checkpoint.{NEW_LINE}\
+  This value is applied to all positions you *will* place,{NEW_LINE}\
+  not on those are already placed.
+
+# Name of "Done" item
+editor.item.done.name=Done.
+# Lore of "Done" item
+! {NEW_LINE} Go to next line
+editor.item.done.lore=When your parkour is ready, click me and have fun !

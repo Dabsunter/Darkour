@@ -1,0 +1,28 @@
+name: Darkour
+description: Manage your parkours was never so simple
+version: 1.0.0
+author: Dabsunter
+
+main: fr.dabsunter.darkour.DarkourPlugin
+
+commands:
+  darkour:
+    description: Admin command
+    permission: darkour.command.admin
+    usage: /<command> help
+  parkour:
+    description: Public command
+    aliases: [pa]
+    permission: darkour.command.player
+    usage: /<command> help
+
+permissions:
+  darkour.command.admin:
+    description: Permission to access Admin command
+    default: op
+  darkour.command.player:
+    description: Permission to access Public command
+    default: true
+  darkour.parkour.*:
+    description: Permission to access a given parkour
+    default: true
