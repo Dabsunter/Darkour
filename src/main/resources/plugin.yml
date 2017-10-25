@@ -4,6 +4,7 @@ version: 1.0.0
 author: Dabsunter
 
 main: fr.dabsunter.darkour.DarkourPlugin
+soft-depends: [Multiverse-Core]
 
 commands:
   darkour:
