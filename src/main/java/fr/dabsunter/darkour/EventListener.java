@@ -4,6 +4,7 @@ import fr.dabsunter.darkour.api.parkour.Position;
 import fr.dabsunter.darkour.entity.DarkTraceur;
 import fr.dabsunter.darkour.parkour.DarkParkour;
 import fr.dabsunter.darkour.parkour.DarkPosition;
+import org.bukkit.Material;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.Player;
@@ -91,6 +92,7 @@ public class EventListener implements Listener {
 	}
 
 	@EventHandler
+	@SuppressWarnings("deprecation")
 	public void onPlayerPickupItem(PlayerPickupItemEvent event) {
 		onInventoryEvent(event.getPlayer(), event);
 	}
@@ -116,8 +118,12 @@ public class EventListener implements Listener {
 						break;
 					case COMPASS:
 						traceur.stopParkour(false);
+						break;
+					default:
+						if (event.hasBlock() && (event.getClickedBlock().getType() == Material.SIGN_POST
+								|| event.getClickedBlock().getType() == Material.WALL_SIGN))
+							return;
 				}
-
 				event.setCancelled(true);
 			}
 		}
