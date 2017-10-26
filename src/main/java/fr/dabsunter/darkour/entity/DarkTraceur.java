@@ -2,10 +2,10 @@ package fr.dabsunter.darkour.entity;
 
 import fr.dabsunter.darkour.DarkourUtils;
 import fr.dabsunter.darkour.api.entity.Traceur;
-import fr.dabsunter.darkour.api.event.PlayerParkourEndedEvent;
-import fr.dabsunter.darkour.api.event.PlayerParkourReachCheckpointEvent;
-import fr.dabsunter.darkour.api.event.PlayerParkourStartEvent;
-import fr.dabsunter.darkour.api.event.PlayerParkourStopEvent;
+import fr.dabsunter.darkour.api.event.TraceurEndedEvent;
+import fr.dabsunter.darkour.api.event.TraceurReachCheckpointEvent;
+import fr.dabsunter.darkour.api.event.TraceurStartEvent;
+import fr.dabsunter.darkour.api.event.TraceurStopEvent;
 import fr.dabsunter.darkour.api.parkour.Parkour;
 import fr.dabsunter.darkour.api.parkour.Position;
 import fr.dabsunter.darkour.parkour.DarkCheckpoint;
@@ -68,8 +68,8 @@ public class DarkTraceur implements Traceur, Runnable {
 			stopParkour(true);
 		} else {
 			if (lastValidPosition.getType() == Position.Type.CHECKPOINT) {
-				PlayerParkourReachCheckpointEvent event =
-						new PlayerParkourReachCheckpointEvent(this, currentParkour, (DarkCheckpoint) lastValidPosition);
+				TraceurReachCheckpointEvent event =
+						new TraceurReachCheckpointEvent(this, currentParkour, (DarkCheckpoint) lastValidPosition);
 				Bukkit.getPluginManager().callEvent(event);
 				if (event.isCancelled())
 					return;
@@ -99,7 +99,7 @@ public class DarkTraceur implements Traceur, Runnable {
 			if (isInParkour())
 				throw new IllegalStateException("Traceur is already in parkour and is not allowed to leave it");
 		}
-		PlayerParkourStartEvent event = new PlayerParkourStartEvent(this, parkour);
+		TraceurStartEvent event = new TraceurStartEvent(this, parkour);
 		Bukkit.getPluginManager().callEvent(event);
 		if (event.isCancelled())
 			return;
@@ -126,7 +126,7 @@ public class DarkTraceur implements Traceur, Runnable {
 	public void stopParkour(boolean success) {
 		if (!isInParkour())
 			throw new IllegalStateException("Traceur is not in parkour");
-		PlayerParkourStopEvent stopEvent = new PlayerParkourStopEvent(this, currentParkour, success);
+		TraceurStopEvent stopEvent = new TraceurStopEvent(this, currentParkour, success);
 		Bukkit.getPluginManager().callEvent(stopEvent);
 		if (stopEvent.isCancelled())
 			return;
@@ -134,7 +134,7 @@ public class DarkTraceur implements Traceur, Runnable {
 		int chrono = stopChrono();
 		playerState.restore();
 		if (stopEvent.isSuccess()) {
-			PlayerParkourEndedEvent endedEvent = new PlayerParkourEndedEvent(this, currentParkour, chrono);
+			TraceurEndedEvent endedEvent = new TraceurEndedEvent(this, currentParkour, chrono);
 			Bukkit.getPluginManager().callEvent(endedEvent);
 			player.sendMessage(Trein.multiline(Trein.format(PARKOUR_CHAT_SUCCESS,
 					"PLAYER", player.getName(),

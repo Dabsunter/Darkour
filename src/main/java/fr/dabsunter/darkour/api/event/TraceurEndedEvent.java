@@ -8,11 +8,11 @@ import org.bukkit.event.HandlerList;
 /**
  * Fired when a traceur finish a parkour
  */
-public class PlayerParkourEndedEvent extends PlayerParkourEvent {
+public class TraceurEndedEvent extends TraceurEvent {
 	private static final HandlerList handlers = new HandlerList();
 	private int chrono;
 
-	public PlayerParkourEndedEvent(Traceur traceur, Parkour parkour, int chrono) {
+	public TraceurEndedEvent(Traceur traceur, Parkour parkour, int chrono) {
 		super(traceur, parkour);
 		this.chrono = chrono;
 	}

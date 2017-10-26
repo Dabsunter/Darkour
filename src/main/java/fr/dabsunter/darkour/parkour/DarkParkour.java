@@ -1,10 +1,12 @@
 package fr.dabsunter.darkour.parkour;
 
 import fr.dabsunter.darkour.DarkourPlugin;
+import fr.dabsunter.darkour.api.event.ParkourOpenStateChangeEvent;
 import fr.dabsunter.darkour.api.parkour.Checkpoint;
 import fr.dabsunter.darkour.api.parkour.Parkour;
 import fr.dabsunter.darkour.api.parkour.PreventedDamages;
 import fr.dabsunter.darkour.entity.DarkTraceur;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.configuration.ConfigurationSection;
 
@@ -86,9 +88,13 @@ public class DarkParkour implements Parkour {
 	}
 
 	public void setOpen(boolean open) {
-		if (!open)
+		ParkourOpenStateChangeEvent event = new ParkourOpenStateChangeEvent(this, open);
+		Bukkit.getPluginManager().callEvent(event);
+		if (event.isCancelled())
+			return;
+		if (!event.isOpen())
 			stopEveryone(this);
-		this.open = open;
+		this.open = event.isOpen();
 	}
 
 	@Override

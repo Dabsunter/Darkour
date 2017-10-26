@@ -1,39 +1,40 @@
 package fr.dabsunter.darkour.api.event;
 
 import fr.dabsunter.darkour.api.entity.Traceur;
+import fr.dabsunter.darkour.api.parkour.Checkpoint;
 import fr.dabsunter.darkour.api.parkour.Parkour;
 import org.bukkit.event.Cancellable;
 import org.bukkit.event.HandlerList;
 
 /**
- * Fired when a traceur is about to leave the traceur mode
+ * Fired when a traceur reach a checkpoint
  */
-public class PlayerParkourStopEvent extends PlayerParkourEvent implements Cancellable {
+public class TraceurReachCheckpointEvent extends TraceurEvent implements Cancellable {
 	private static final HandlerList handlers = new HandlerList();
-	private boolean isSuccess;
+	private Checkpoint checkpoint;
 	private boolean isCancelled = false;
 
-	public PlayerParkourStopEvent(Traceur traceur, Parkour parkour, boolean isSuccess) {
+	public TraceurReachCheckpointEvent(Traceur traceur, Parkour parkour, Checkpoint checkpoint) {
 		super(traceur, parkour);
-		this.isSuccess = isSuccess;
+		this.checkpoint = checkpoint;
 	}
 
 	/**
-	 * Returns whether or not the traceur has finished the parkour
+	 * Returns the checkpoint which has been reached
 	 *
-	 * @return true if the player has finished the parkour, false otherwise
+	 * @return reached Checkpoint
 	 */
-	public boolean isSuccess() {
-		return isSuccess;
+	public Checkpoint getCheckpoint() {
+		return checkpoint;
 	}
 
 	/**
-	 * Sets whether or not the traceur has finished the parkour
+	 * Sets the reached checkpoint
 	 *
-	 * @param success is success
+	 * @param checkpoint reached Checkpoint
 	 */
-	public void setSuccess(boolean success) {
-		isSuccess = success;
+	public void setCheckpoint(Checkpoint checkpoint) {
+		this.checkpoint = checkpoint;
 	}
 
 	@Override

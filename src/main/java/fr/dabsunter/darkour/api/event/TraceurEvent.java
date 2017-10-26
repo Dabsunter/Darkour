@@ -5,13 +5,13 @@ import fr.dabsunter.darkour.api.parkour.Parkour;
 import org.bukkit.event.player.PlayerEvent;
 
 /**
- * Represents a parkour related event
+ * Represents a traceur related event
  */
-public abstract class PlayerParkourEvent extends PlayerEvent {
+public abstract class TraceurEvent extends PlayerEvent {
 	protected Traceur traceur;
 	protected Parkour parkour;
 
-	protected PlayerParkourEvent(Traceur traceur, Parkour parkour) {
+	protected TraceurEvent(Traceur traceur, Parkour parkour) {
 		super(traceur.getPlayer());
 		this.traceur = traceur;
 		this.parkour = parkour;

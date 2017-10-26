@@ -5,11 +5,14 @@ import fr.dabsunter.darkour.api.parkour.Parkour;
 import org.bukkit.event.Cancellable;
 import org.bukkit.event.HandlerList;
 
-public class PlayerParkourStartEvent extends PlayerParkourEvent implements Cancellable {
+/**
+ * Fired when a traceur is about to enter the traceur mode
+ */
+public class TraceurStartEvent extends TraceurEvent implements Cancellable {
 	private static final HandlerList handlers = new HandlerList();
 	private boolean isCancelled = false;
 
-	public PlayerParkourStartEvent(Traceur traceur, Parkour parkour) {
+	public TraceurStartEvent(Traceur traceur, Parkour parkour) {
 		super(traceur, parkour);
 	}
 
